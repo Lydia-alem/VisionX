@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisionX | Next-Gen Web Agency</title>
-    <!-- Favicon for browser tab -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👁️</text></svg>">
+    <title>VisionX | Agence Web Nouvelle Génération</title>
+    
+    <!-- Logo comme favicon (vous pouvez le remplacer par votre logo) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22"> <img src="visionx1.png" alt="VisionX Logo" style="display:none;"></text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
@@ -91,6 +92,7 @@
             align-items: center;
         }
         
+        /* Mise à jour du logo pour utiliser votre image */
         .logo {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
@@ -103,31 +105,39 @@
             z-index: 1001;
         }
         
-        .logo-icon {
-            position: relative;
+        .logo-container {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-right: 10px;
         }
         
-        .logo-eye {
+        /* Conteneur pour votre logo sans fond */
+        .logo-img {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+            transition: var(--transition);
+        }
+        
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+        
+        /* Style de secours si votre logo ne charge pas */
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
             font-size: 2.2rem;
-            color: var(--primary);
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 0 15px rgba(108, 99, 255, 0.5);
+            line-height: 1;
         }
         
-        .logo-glow {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 50%;
-            filter: blur(10px);
-            opacity: 0.5;
-            animation: pulse 2s infinite alternate;
+        .logo-tagline {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--gray);
+            margin-top: 3px;
         }
         
         .logo span {
@@ -193,7 +203,7 @@
         }
         
         .hero-content {
-            max-width: 9000px;
+            max-width: 900px;
             position: relative;
             z-index: 10;
             display: flex;
@@ -217,7 +227,6 @@
             color: var(--light);
             line-height: 1.1;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            max-width: 9000px;
         }
         
         .hero-text h1 span {
@@ -848,17 +857,12 @@
                 font-size: 1.1rem;
             }
             
-            .logo {
+            .logo-main {
                 font-size: 1.8rem;
             }
             
-            .logo-eye {
-                font-size: 1.8rem;
-            }
-            
-            .logo-glow {
-                width: 30px;
-                height: 30px;
+            .logo-img {
+                height: 40px;
             }
             
             .btn {
@@ -885,9 +889,15 @@
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="visionx.png" class="logo">
-                    
-                    
+                <a href="#home" class="logo">
+                    <div class="logo-container">
+                        <!-- Remplacez "logo.png" par le chemin vers votre logo sans fond -->
+                        <img src="logo.png" alt="VisionX Logo" class="logo-img">
+                        <div class="logo-text">
+                            <div class="logo-main">Vision<span>X</span></div>
+                            <div class="logo-tagline">Agence Web Nouvelle Génération</div>
+                        </div>
+                    </div>
                 </a>
                 
                 <div class="menu-toggle" id="menuToggle">
@@ -895,7 +905,7 @@
                 </div>
                 
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#home">Accueil</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -909,11 +919,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="typewriter animate-on-scroll">Where <span>Vision</span> Meets <span>Innovation</span></h1>
-                    <p class="animate-on-scroll" style="animation-delay: 0.3s;">VisionX combines creative web solutions with stunning animations to deliver digital experiences that captivate and convert.</p>
+                    <h1 class="typewriter animate-on-scroll">Où la <span>Vision</span> Rencontre l'<span>Innovation</span></h1>
+                    <p class="animate-on-scroll" style="animation-delay: 0.3s;">VisionX allie solutions web créatives et animations époustouflantes pour offrir des expériences digitales qui captivent et convertissent.</p>
                     <div class="hero-buttons animate-on-scroll" style="animation-delay: 0.6s;">
-                        <a href="#contact" class="btn">Start Your Project</a>
-                        <a href="#services" class="btn btn-secondary">Our Services</a>
+                        <a href="#contact" class="btn">Démarrer Votre Projet</a>
+                        <a href="#services" class="btn btn-secondary">Nos Services</a>
                     </div>
                 </div>
             </div>
@@ -931,8 +941,8 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2 class="animate-on-scroll">Our Services</h2>
-                <p class="animate-on-scroll" style="animation-delay: 0.2s;">We leverage the latest in web technology to create engaging digital experiences that stand out.</p>
+                <h2 class="animate-on-scroll">Nos Services</h2>
+                <p class="animate-on-scroll" style="animation-delay: 0.2s;">Nous exploitons les dernières technologies web pour créer des expériences digitales engageantes qui se démarquent.</p>
             </div>
             
             <div class="services-grid">
@@ -940,27 +950,27 @@
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Web Development</h3>
-                    <p>Interactive websites with modern animations and effects that engage users like never before.</p>
-                    <a href="#" class="btn btn-secondary">Explore Tech</a>
+                    <h3>Développement Web</h3>
+                    <p>Sites web interactifs avec des animations et effets modernes qui engagent les utilisateurs comme jamais auparavant.</p>
+                    <a href="#" class="btn btn-secondary">Explorer</a>
                 </div>
                 
                 <div class="service-card animate-on-scroll" style="animation-delay: 0.2s;">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Responsive Design</h3>
-                    <p>Mobile-first, responsive designs that work perfectly across all devices and screen sizes.</p>
-                    <a href="#" class="btn btn-secondary">See Designs</a>
+                    <h3>Design Responsive</h3>
+                    <p>Designs mobile-first et responsives qui fonctionnent parfaitement sur tous les appareils et tailles d'écran.</p>
+                    <a href="#" class="btn btn-secondary">Voir les Designs</a>
                 </div>
                 
                 <div class="service-card animate-on-scroll" style="animation-delay: 0.4s;">
                     <div class="service-icon">
                         <i class="fas fa-magic"></i>
                     </div>
-                    <h3>Creative Animation</h3>
-                    <p>Advanced CSS and JavaScript animations for stunning visual storytelling.</p>
-                    <a href="#" class="btn btn-secondary">See Animations</a>
+                    <h3>Animation Créative</h3>
+                    <p>Animations CSS et JavaScript avancées pour une narration visuelle époustouflante.</p>
+                    <a href="#" class="btn btn-secondary">Voir les Animations</a>
                 </div>
             </div>
         </div>
@@ -970,32 +980,32 @@
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2 class="animate-on-scroll">Portfolio Showcase</h2>
-                <p class="animate-on-scroll" style="animation-delay: 0.2s;">Explore our projects that blend creativity with cutting-edge technology.</p>
+                <h2 class="animate-on-scroll">Portfolio</h2>
+                <p class="animate-on-scroll" style="animation-delay: 0.2s;">Découvrez nos projets qui allient créativité et technologie de pointe.</p>
             </div>
             
             <div class="portfolio-grid">
                 <div class="portfolio-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>E-commerce Platform</h3>
-                        <p>Modern online shopping experience with smooth animations</p>
+                        <h3>Plateforme E-commerce</h3>
+                        <p>Expérience d'achat en ligne moderne avec animations fluides</p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item animate-on-scroll" style="animation-delay: 0.2s;">
                     <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dashboard" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>Analytics Dashboard</h3>
-                        <p>Interactive data visualization with animated charts</p>
+                        <h3>Tableau de Bord Analytics</h3>
+                        <p>Visualisation de données interactive avec graphiques animés</p>
                     </div>
                 </div>
                 
                 <div class="portfolio-item animate-on-scroll" style="animation-delay: 0.4s;">
                     <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mobile App" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>Mobile Application</h3>
-                        <p>Smooth UI transitions and engaging user experience</p>
+                        <h3>Application Mobile</h3>
+                        <p>Transitions UI fluides et expérience utilisateur engageante</p>
                     </div>
                 </div>
             </div>
@@ -1006,18 +1016,18 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2 class="animate-on-scroll">Start Your Journey</h2>
-                <p class="animate-on-scroll" style="animation-delay: 0.2s;">Ready to transform your digital presence with creative technology?</p>
+                <h2 class="animate-on-scroll">Commencez Votre Voyage</h2>
+                <p class="animate-on-scroll" style="animation-delay: 0.2s;">Prêt à transformer votre présence digitale avec une technologie créative?</p>
             </div>
             
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-card animate-on-scroll">
-                        <h3>Contact Information</h3>
+                        <h3>Informations de Contact</h3>
                         <div class="contact-detail">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <h4>Our Studio</h4>
+                                <h4>Notre Studio</h4>
                                 <p>456 Innovation Drive, Tech Valley</p>
                             </div>
                         </div>
@@ -1025,8 +1035,8 @@
                         <div class="contact-detail">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <h4>Call Us</h4>
-                                <p>+1 (555) 987-6543</p>
+                                <h4>Téléphone</h4>
+                                <p>+33 1 23 45 67 89</p>
                             </div>
                         </div>
                         
@@ -1034,7 +1044,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p>hello@visionx.com</p>
+                                <p>bonjour@visionx.fr</p>
                             </div>
                         </div>
                     </div>
@@ -1043,22 +1053,22 @@
                 <div class="contact-form animate-on-scroll" style="animation-delay: 0.3s;">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" class="form-control" placeholder="Votre Nom" required>
                         </div>
                         
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" class="form-control" placeholder="Votre Email" required>
                         </div>
                         
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Project Type">
+                            <input type="text" class="form-control" placeholder="Type de Projet">
                         </div>
                         
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Tell us about your vision..." required></textarea>
+                            <textarea class="form-control" placeholder="Parlez-nous de votre vision..." required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn">Launch Project</button>
+                        <button type="submit" class="btn">Lancer le Projet</button>
                     </form>
                 </div>
             </div>
@@ -1070,14 +1080,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col animate-on-scroll">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">
-                            <div class="logo-glow"></div>
-                            <i class="fas fa-eye logo-eye"></i>
+                    <a href="#home" class="logo">
+                        <div class="logo-container">
+                            <!-- Votre logo dans le footer également -->
+                            <img src="logo.png" alt="VisionX Logo" class="logo-img" style="height: 40px;">
+                            <div class="logo-text">
+                                <div class="logo-main">Vision<span>X</span></div>
+                            </div>
                         </div>
-                        Vision<span>X</span>
                     </a>
-                    <p>Pushing the boundaries of web design with immersive experiences and cutting-edge technology.</p>
+                    <p>Repoussant les limites du design web avec des expériences immersives et une technologie de pointe.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-dribbble"></i></a>
@@ -1089,17 +1101,17 @@
                 <div class="footer-col animate-on-scroll" style="animation-delay: 0.1s;">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">Animation Effects</a></li>
-                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#services">Développement Web</a></li>
+                        <li><a href="#services">Design UI/UX</a></li>
+                        <li><a href="#services">Effets d'Animation</a></li>
+                        <li><a href="#services">Applications Mobile</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col animate-on-scroll" style="animation-delay: 0.2s;">
-                    <h3>Quick Links</h3>
+                    <h3>Liens Rapides</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="#home">Accueil</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -1108,7 +1120,7 @@
             </div>
             
             <div class="copyright animate-on-scroll" style="animation-delay: 0.3s;">
-                <p>&copy; 2023 VisionX Web Agency. All rights reserved.</p>
+                <p>&copy; 2023 VisionX Agence Web. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -1284,7 +1296,7 @@
             const submitBtn = contactForm.querySelector('.btn');
             const originalText = submitBtn.textContent;
             
-            submitBtn.textContent = "Sending...";
+            submitBtn.textContent = "Envoi en cours...";
             submitBtn.style.background = "linear-gradient(90deg, #36d1dc, #5a52d3)";
             
             // Animate the form
@@ -1292,7 +1304,7 @@
             
             // Simulate API call
             setTimeout(() => {
-                submitBtn.textContent = "✓ Sent Successfully!";
+                submitBtn.textContent = "✓ Envoyé avec succès!";
                 submitBtn.style.background = "linear-gradient(90deg, #4CAF50, #2E7D32)";
                 
                 // Add a little animation to the success message
@@ -1326,6 +1338,17 @@
                         el.classList.add('fade-in-right');
                     }
                 }, index * 300);
+            });
+            
+            // Vérifier si le logo est chargé, sinon afficher un fallback
+            const logoImgs = document.querySelectorAll('.logo-img');
+            logoImgs.forEach(img => {
+                img.onerror = function() {
+                    // Si le logo ne charge pas, on le remplace par du texte
+                    this.style.display = 'none';
+                    // Vous pouvez aussi afficher un message dans la console pour debug
+                    console.log("Le logo n'a pas pu être chargé. Vérifiez le chemin: " + this.src);
+                };
             });
         });
         
