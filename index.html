@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisionX | Agence Web Nouvelle Génération</title>
     
-    <!-- Logo comme favicon (vous pouvez le remplacer par votre logo) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22"> <img src="visionx1.png" alt="VisionX Logo" style="display:none;"></text></svg>">
+    
+    <link rel="icon" >  <img src="visionx1.png" alt="VisionX Logo" style="display:none;">>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
@@ -19,6 +19,7 @@
             --light: #f8f9fa;
             --gray: #8a8da0;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --header-height: 80px;
         }
         
         * {
@@ -74,14 +75,16 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 25px 0;
             transition: var(--transition);
             background-color: rgba(10, 10, 26, 0.7);
             backdrop-filter: blur(10px);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            
         }
         
         header.scrolled {
-            padding: 15px 0;
             background-color: rgba(10, 10, 26, 0.95);
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
         }
@@ -90,19 +93,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
         
-        /* Mise à jour du logo pour utiliser votre image */
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 2.2rem;
-            color: var(--light);
-            text-decoration: none;
             display: flex;
-            align-items: center;
             position: relative;
             z-index: 1001;
+            align-items: center;
+            text-decoration: none;
         }
         
         .logo-container {
@@ -110,34 +109,28 @@
             align-items: center;
         }
         
-        /* Conteneur pour votre logo sans fond */
+        
         .logo-img {
-            height: 50px;
+            height: 200px;
             width: auto;
             margin-right: 15px;
+            margin-left: 15px;
             transition: var(--transition);
         }
-        
+
         .logo:hover .logo-img {
             transform: scale(1.05);
         }
         
-        /* Style de secours si votre logo ne charge pas */
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        
         .logo-main {
-            font-size: 2.2rem;
+            font-size: 1.2rem;
             line-height: 1;
         }
         
         .logo-tagline {
             font-size: 0.8rem;
-            font-weight: 300;
             color: var(--gray);
-            margin-top: 3px;
+            margin-top: 0px;
         }
         
         .logo span {
@@ -192,14 +185,15 @@
         }
         
         /* Hero Section - Centered */
+        
         .hero {
-            padding-top: 200px;
-            position: relative;
-            min-height: 100vh;
+            
+            min-height: calc(100vh - var(--header-height));
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding-top: 150px; 
         }
         
         .hero-content {
@@ -211,6 +205,7 @@
             align-items: center;
             justify-content: center;
             width: 100%;
+            margin: 0 auto;
         }
         
         .hero-text {
@@ -774,17 +769,17 @@
         /* Responsive Styles */
         @media (max-width: 1200px) {
             .hero-text h1 {
-                font-size: 3.8rem;
+                font-size: 3.2rem;
             }
         }
         
         @media (max-width: 992px) {
             .hero {
-                padding-top: 150px;
+                min-height: calc(100vh - var(--header-height));
             }
             
             .hero-text h1 {
-                font-size: 3.2rem;
+                font-size: 3rem;
             }
             
             .hero-buttons {
@@ -835,7 +830,7 @@
             }
             
             .hero-text h1 {
-                font-size: 2.8rem;
+                font-size: 2.6rem;
             }
             
             .section-title h2 {
@@ -845,6 +840,11 @@
             .services-grid,
             .portfolio-grid {
                 grid-template-columns: 1fr;
+            }
+
+            
+            .logo-img {
+                height: 40px;
             }
         }
         
@@ -858,11 +858,11 @@
             }
             
             .logo-main {
-                font-size: 1.8rem;
+                font-size: 1.0rem;
             }
             
             .logo-img {
-                height: 40px;
+                height: 36px;
             }
             
             .btn {
@@ -891,12 +891,7 @@
             <nav class="navbar">
                 <a href="#home" class="logo">
                     <div class="logo-container">
-                        <!-- Remplacez "logo.png" par le chemin vers votre logo sans fond -->
-                        <img src="logo.png" alt="VisionX Logo" class="logo-img">
-                        <div class="logo-text">
-                            <div class="logo-main">Vision<span>X</span></div>
-                            <div class="logo-tagline">Agence Web Nouvelle Génération</div>
-                        </div>
+                        <img src="visionx1.png" alt="VisionX Logo" class="logo-img">
                     </div>
                 </a>
                 
@@ -1027,8 +1022,8 @@
                         <div class="contact-detail">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <h4>Notre Studio</h4>
-                                <p>456 Innovation Drive, Tech Valley</p>
+                                <h4>Localisation</h4>
+                                <p>Constantine, Algérie</p>
                             </div>
                         </div>
                         
@@ -1036,7 +1031,7 @@
                             <i class="fas fa-phone"></i>
                             <div>
                                 <h4>Téléphone</h4>
-                                <p>+33 1 23 45 67 89</p>
+                                <p>0789756430</p>
                             </div>
                         </div>
                         
@@ -1044,7 +1039,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <p>bonjour@visionx.fr</p>
+                                <p>visionx@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -1082,11 +1077,9 @@
                 <div class="footer-col animate-on-scroll">
                     <a href="#home" class="logo">
                         <div class="logo-container">
-                            <!-- Votre logo dans le footer également -->
-                            <img src="logo.png" alt="VisionX Logo" class="logo-img" style="height: 40px;">
-                            <div class="logo-text">
-                                <div class="logo-main">Vision<span>X</span></div>
-                            </div>
+                            
+                            <img src="visionx1.png" alt="VisionX Logo" class="logo-img" style="height: 200px;">
+                            
                         </div>
                     </a>
                     <p>Repoussant les limites du design web avec des expériences immersives et une technologie de pointe.</p>
@@ -1176,7 +1169,7 @@
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
                     
-                    // Add glow effect for brighter stars
+                    //  Glow effect for brighter stars
                     if (this.size > 2) {
                         ctx.shadowBlur = 10;
                         ctx.shadowColor = this.color;
@@ -1344,9 +1337,7 @@
             const logoImgs = document.querySelectorAll('.logo-img');
             logoImgs.forEach(img => {
                 img.onerror = function() {
-                    // Si le logo ne charge pas, on le remplace par du texte
-                    this.style.display = 'none';
-                    // Vous pouvez aussi afficher un message dans la console pour debug
+                   this.style.display = 'none';
                     console.log("Le logo n'a pas pu être chargé. Vérifiez le chemin: " + this.src);
                 };
             });
