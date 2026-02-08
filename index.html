@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisionX | Agence Web Nouvelle Génération</title>
     
-    
     <link rel="icon" type="image/x-icon" href="vx.png" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <!-- Arabic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #6c63ff;
@@ -40,10 +41,22 @@
             overflow-x: hidden;
         }
         
+        body[lang="ar"] {
+            font-family: 'Almarai', 'Cairo', sans-serif;
+        }
+        
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             line-height: 1.2;
+        }
+        
+        body[lang="ar"] h1,
+        body[lang="ar"] h2,
+        body[lang="ar"] h3,
+        body[lang="ar"] h4 {
+            font-family: 'Cairo', 'Almarai', sans-serif;
+            font-weight: 700;
         }
         
         .container {
@@ -81,7 +94,6 @@
             height: var(--header-height);
             display: flex;
             align-items: center;
-            
         }
         
         header.scrolled {
@@ -108,7 +120,6 @@
             display: flex;
             align-items: center;
         }
-        
         
         .logo-img {
             height: 200px;
@@ -141,6 +152,7 @@
         .nav-links {
             display: flex;
             list-style: none;
+            align-items: center;
         }
         
         .nav-links li {
@@ -155,6 +167,10 @@
             transition: var(--transition);
             position: relative;
             padding: 5px 0;
+        }
+        
+        body[lang="ar"] .nav-links a {
+            font-family: 'Almarai', sans-serif;
         }
         
         .nav-links a:hover {
@@ -172,6 +188,11 @@
             transition: var(--transition);
         }
         
+        body[lang="ar"] .nav-links a::after {
+            left: auto;
+            right: 0;
+        }
+        
         .nav-links a:hover::after {
             width: 100%;
         }
@@ -184,10 +205,118 @@
             z-index: 1001;
         }
         
-        /* Hero Section - Centered */
+        /* Language Switcher Styles */
+        .language-switcher {
+            position: relative;
+            z-index: 1001;
+        }
         
+        .language-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: var(--light);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .language-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 10px;
+            background: rgba(10, 10, 26, 0.95);
+            border-radius: 15px;
+            padding: 10px 0;
+            min-width: 180px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        body[lang="ar"] .language-dropdown {
+            right: auto;
+            left: 0;
+        }
+        
+        .language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--light);
+            text-decoration: none;
+        }
+        
+        body[lang="ar"] .language-option {
+            font-family: 'Almarai', sans-serif;
+        }
+        
+        .language-option:hover {
+            background: rgba(108, 99, 255, 0.2);
+            padding-left: 30px;
+        }
+        
+        body[lang="ar"] .language-option:hover {
+            padding-left: 25px;
+            padding-right: 30px;
+        }
+        
+        .language-option i {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .language-option.active {
+            background: rgba(108, 99, 255, 0.3);
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .language-option.active::before {
+            content: '✓';
+            position: absolute;
+            right: 20px;
+            font-weight: bold;
+        }
+        
+        body[lang="ar"] .language-option.active::before {
+            right: auto;
+            left: 20px;
+        }
+        
+        /* Hero Section - Centered */
         .hero {
-            
             min-height: calc(100vh - var(--header-height));
             display: flex;
             align-items: center;
@@ -224,6 +353,13 @@
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
+        body[lang="ar"] .hero-text h1 {
+            font-size: 3.2rem;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
         .hero-text h1 span {
             background: linear-gradient(90deg, var(--primary), var(--tertiary));
             -webkit-background-clip: text;
@@ -241,11 +377,21 @@
             text-align: center;
         }
         
+        body[lang="ar"] .hero-text p {
+            font-family: 'Almarai', sans-serif;
+            font-size: 1.4rem;
+            line-height: 1.8;
+        }
+        
         .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+        }
+        
+        body[lang="ar"] .hero-buttons {
+            flex-direction: row-reverse;
         }
         
         .floating-shapes {
@@ -308,6 +454,12 @@
             z-index: 1;
         }
         
+        body[lang="ar"] .btn {
+            font-family: 'Almarai', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
         .btn::before {
             content: '';
             position: absolute;
@@ -365,11 +517,23 @@
             color: transparent;
         }
         
+        body[lang="ar"] .section-title h2 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 3.2rem;
+        }
+        
         .section-title p {
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.2rem;
+        }
+        
+        body[lang="ar"] .section-title p {
+            font-family: 'Almarai', sans-serif;
+            font-size: 1.3rem;
+            line-height: 1.8;
         }
         
         .services-grid {
@@ -433,9 +597,21 @@
             color: var(--light);
         }
         
+        body[lang="ar"] .service-card h3 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.9rem;
+        }
+        
         .service-card p {
             color: var(--gray);
             margin-bottom: 25px;
+        }
+        
+        body[lang="ar"] .service-card p {
+            font-family: 'Almarai', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
         /* Portfolio Section */
@@ -497,6 +673,15 @@
             opacity: 1;
         }
         
+        .portfolio-overlay h3 {
+            font-size: 1.8rem;
+        }
+        
+        body[lang="ar"] .portfolio-overlay h3 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+        }
+        
         /* Contact Section */
         .contact {
             position: relative;
@@ -507,6 +692,10 @@
             display: flex;
             flex-wrap: wrap;
             gap: 60px;
+        }
+        
+        body[lang="ar"] .contact-content {
+            flex-direction: row-reverse;
         }
         
         .contact-info {
@@ -534,10 +723,19 @@
             color: var(--light);
         }
         
+        body[lang="ar"] .contact-card h3 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+        }
+        
         .contact-detail {
             display: flex;
             align-items: center;
             margin-bottom: 25px;
+        }
+        
+        body[lang="ar"] .contact-detail {
+            flex-direction: row-reverse;
         }
         
         .contact-detail i {
@@ -551,6 +749,29 @@
             justify-content: center;
             margin-right: 20px;
             font-size: 1.5rem;
+        }
+        
+        body[lang="ar"] .contact-detail i {
+            margin-right: 0;
+            margin-left: 20px;
+        }
+        
+        .contact-detail div h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        body[lang="ar"] .contact-detail div h4 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+        }
+        
+        .contact-detail div p {
+            color: var(--gray);
+        }
+        
+        body[lang="ar"] .contact-detail div p {
+            font-family: 'Almarai', sans-serif;
         }
         
         .form-group {
@@ -569,6 +790,12 @@
             color: var(--light);
         }
         
+        body[lang="ar"] .form-control {
+            font-family: 'Almarai', sans-serif;
+            font-size: 1.1rem;
+            text-align: right;
+        }
+        
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
@@ -578,6 +805,11 @@
         textarea.form-control {
             min-height: 180px;
             resize: vertical;
+        }
+        
+        body[lang="ar"] textarea.form-control {
+            text-align: right;
+            direction: rtl;
         }
         
         /* Footer */
@@ -596,6 +828,10 @@
             margin-bottom: 60px;
         }
         
+        body[lang="ar"] .footer-content {
+            flex-direction: row-reverse;
+        }
+        
         .footer-col {
             flex: 1;
             min-width: 250px;
@@ -606,6 +842,11 @@
             font-size: 1.5rem;
             margin-bottom: 30px;
             color: var(--light);
+        }
+        
+        body[lang="ar"] .footer-col h3 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
         }
         
         .footer-links {
@@ -622,9 +863,19 @@
             transition: var(--transition);
         }
         
+        body[lang="ar"] .footer-links a {
+            font-family: 'Almarai', sans-serif;
+            font-size: 1.1rem;
+        }
+        
         .footer-links a:hover {
             color: var(--primary);
             padding-left: 10px;
+        }
+        
+        body[lang="ar"] .footer-links a:hover {
+            padding-left: 0;
+            padding-right: 10px;
         }
         
         .social-links {
@@ -657,6 +908,11 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--gray);
             font-size: 0.9rem;
+        }
+        
+        body[lang="ar"] .copyright {
+            font-family: 'Almarai', sans-serif;
+            font-size: 1rem;
         }
         
         /* Animation Classes */
@@ -771,6 +1027,10 @@
             .hero-text h1 {
                 font-size: 3.2rem;
             }
+            
+            body[lang="ar"] .hero-text h1 {
+                font-size: 3rem;
+            }
         }
         
         @media (max-width: 992px) {
@@ -782,15 +1042,31 @@
                 font-size: 3rem;
             }
             
+            body[lang="ar"] .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
                 gap: 15px;
             }
             
+            body[lang="ar"] .hero-buttons {
+                flex-direction: column;
+            }
+            
             .btn-secondary {
                 margin-left: 0;
                 margin-top: 0;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            body[lang="ar"] .contact-content {
+                flex-direction: column;
             }
         }
         
@@ -816,6 +1092,10 @@
                 backdrop-filter: blur(10px);
             }
             
+            body[lang="ar"] .nav-links {
+                transform: translateX(100%);
+            }
+            
             .nav-links.active {
                 transform: translateX(0);
                 opacity: 1;
@@ -829,22 +1109,71 @@
                 font-size: 1.5rem;
             }
             
+            body[lang="ar"] .nav-links a {
+                font-family: 'Almarai', sans-serif;
+                font-size: 1.6rem;
+            }
+            
             .hero-text h1 {
                 font-size: 2.6rem;
+            }
+            
+            body[lang="ar"] .hero-text h1 {
+                font-size: 2.4rem;
             }
             
             .section-title h2 {
                 font-size: 2.8rem;
             }
             
+            body[lang="ar"] .section-title h2 {
+                font-size: 2.6rem;
+            }
+            
             .services-grid,
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
-
             
             .logo-img {
                 height: 40px;
+            }
+            
+            .language-switcher {
+                margin-top: 20px;
+            }
+            
+            .language-btn {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+            
+            body[lang="ar"] .language-btn {
+                font-family: 'Almarai', sans-serif;
+            }
+            
+            .language-dropdown {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.9);
+                opacity: 0;
+                visibility: hidden;
+                min-width: 250px;
+            }
+            
+            .language-dropdown.active {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            body[lang="ar"] .footer-content {
+                flex-direction: column;
             }
         }
         
@@ -853,8 +1182,16 @@
                 font-size: 2.3rem;
             }
             
+            body[lang="ar"] .hero-text h1 {
+                font-size: 2.1rem;
+            }
+            
             .hero-text p {
                 font-size: 1.1rem;
+            }
+            
+            body[lang="ar"] .hero-text p {
+                font-size: 1.2rem;
             }
             
             .logo-main {
@@ -870,13 +1207,29 @@
                 font-size: 1rem;
             }
             
+            body[lang="ar"] .btn {
+                font-size: 1.1rem;
+            }
+            
             .section-title h2 {
                 font-size: 2.2rem;
+            }
+            
+            body[lang="ar"] .section-title h2 {
+                font-size: 2rem;
             }
             
             .service-card,
             .contact-card {
                 padding: 30px;
+            }
+            
+            .service-card h3 {
+                font-size: 1.6rem;
+            }
+            
+            body[lang="ar"] .service-card h3 {
+                font-size: 1.7rem;
             }
         }
     </style>
@@ -900,10 +1253,31 @@
                 </div>
                 
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home" data-key="home">Accueil</a></li>
+                    <li><a href="#services" data-key="services">Services</a></li>
+                    <li><a href="#portfolio" data-key="portfolio">Portfolio</a></li>
+                    <li><a href="#contact" data-key="contact">Contact</a></li>
+                    <li class="language-switcher">
+                        <div class="language-btn" id="languageBtn">
+                            <i class="fas fa-globe"></i>
+                            <span id="currentLanguage">Français</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <a href="#" class="language-option active" data-lang="fr">
+                                <i class="fas fa-flag"></i>
+                                Français
+                            </a>
+                            <a href="#" class="language-option" data-lang="en">
+                                <i class="fas fa-flag-usa"></i>
+                                English
+                            </a>
+                            <a href="#" class="language-option" data-lang="ar">
+                                <i class="fas fa-flag"></i>
+                                العربية
+                            </a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -914,11 +1288,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="typewriter animate-on-scroll">Où la <span>Vision</span> Rencontre l'<span>Innovation</span></h1>
-                    <p class="animate-on-scroll" style="animation-delay: 0.3s;">VisionX allie solutions web créatives et animations époustouflantes pour offrir des expériences digitales qui captivent et convertissent.</p>
+                    <h1 class="typewriter animate-on-scroll" data-key="heroTitle">Où la <span>Vision</span> Rencontre l'<span>Innovation</span></h1>
+                    <p class="animate-on-scroll" style="animation-delay: 0.3s;" data-key="heroDescription">VisionX allie solutions web créatives et animations époustouflantes pour offrir des expériences digitales qui captivent et convertissent.</p>
                     <div class="hero-buttons animate-on-scroll" style="animation-delay: 0.6s;">
-                        <a href="#contact" class="btn">Démarrer Votre Projet</a>
-                        <a href="#services" class="btn btn-secondary">Nos Services</a>
+                        <a href="#contact" class="btn" data-key="startProject">Démarrer Votre Projet</a>
+                        <a href="#services" class="btn btn-secondary" data-key="ourServices">Nos Services</a>
                     </div>
                 </div>
             </div>
@@ -936,8 +1310,8 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2 class="animate-on-scroll">Nos Services</h2>
-                <p class="animate-on-scroll" style="animation-delay: 0.2s;">Nous exploitons les dernières technologies web pour créer des expériences digitales engageantes qui se démarquent.</p>
+                <h2 class="animate-on-scroll" data-key="servicesTitle">Nos Services</h2>
+                <p class="animate-on-scroll" style="animation-delay: 0.2s;" data-key="servicesDescription">Nous exploitons les dernières technologies web pour créer des expériences digitales engageantes qui se démarquent.</p>
             </div>
             
             <div class="services-grid">
@@ -945,27 +1319,27 @@
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Développement Web</h3>
-                    <p>Sites web interactifs avec des animations et effets modernes qui engagent les utilisateurs comme jamais auparavant.</p>
-                    <a href="#" class="btn btn-secondary">Explorer</a>
+                    <h3 data-key="service1Title">Développement Web</h3>
+                    <p data-key="service1Description">Sites web interactifs avec des animations et effets modernes qui engagent les utilisateurs comme jamais auparavant.</p>
+                    <a href="#" class="btn btn-secondary" data-key="explore">Explorer</a>
                 </div>
                 
                 <div class="service-card animate-on-scroll" style="animation-delay: 0.2s;">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Design Responsive</h3>
-                    <p>Designs mobile-first et responsives qui fonctionnent parfaitement sur tous les appareils et tailles d'écran.</p>
-                    <a href="#" class="btn btn-secondary">Voir les Designs</a>
+                    <h3 data-key="service2Title">Design Responsive</h3>
+                    <p data-key="service2Description">Designs mobile-first et responsives qui fonctionnent parfaitement sur tous les appareils et tailles d'écran.</p>
+                    <a href="#" class="btn btn-secondary" data-key="seeDesigns">Voir les Designs</a>
                 </div>
                 
                 <div class="service-card animate-on-scroll" style="animation-delay: 0.4s;">
                     <div class="service-icon">
                         <i class="fas fa-magic"></i>
                     </div>
-                    <h3>Animation Créative</h3>
-                    <p>Animations CSS et JavaScript avancées pour une narration visuelle époustouflante.</p>
-                    <a href="#" class="btn btn-secondary">Voir les Animations</a>
+                    <h3 data-key="service3Title">Animation Créative</h3>
+                    <p data-key="service3Description">Animations CSS et JavaScript avancées pour une narration visuelle époustouflante.</p>
+                    <a href="#" class="btn btn-secondary" data-key="seeAnimations">Voir les Animations</a>
                 </div>
             </div>
         </div>
@@ -975,28 +1349,24 @@
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2 class="animate-on-scroll">Portfolio</h2>
-                <p class="animate-on-scroll" style="animation-delay: 0.2s;">Découvrez nos projets qui allient créativité et technologie de pointe.</p>
+                <h2 class="animate-on-scroll" data-key="portfolioTitle">Portfolio</h2>
+                <p class="animate-on-scroll" style="animation-delay: 0.2s;" data-key="portfolioDescription">Découvrez nos projets qui allient créativité et technologie de pointe.</p>
             </div>
             
             <div class="portfolio-grid">
                 <div class="portfolio-item animate-on-scroll">
                     <a href="https://simoucosmetique.com/"><img  src="simou.png" alt="E-commerce" class="portfolio-img"></a>
                     <div class="portfolio-overlay">
-                        <h3>Plateforme E-commerce</h3>
-                        
+                        <h3 data-key="project1Title">Plateforme E-commerce</h3>
                     </div>
                 </div>
                 
                 <div class="portfolio-item animate-on-scroll" style="animation-delay: 0.2s;">
                     <a href="https://rymemballage.com/"><img src="REM.png" alt="Dashboard" class="portfolio-img"></a>
                     <div class="portfolio-overlay">
-                        <h3>Tableau de Bord Analytics</h3>
-                        
+                        <h3 data-key="project2Title">Tableau de Bord Analytics</h3>
                     </div>
                 </div>
-                
-                
             </div>
         </div>
     </section>
@@ -1005,18 +1375,18 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2 class="animate-on-scroll">Commencez Votre Projet</h2>
-                <p class="animate-on-scroll" style="animation-delay: 0.2s;">Prêt à transformer votre présence digitale avec une technologie créative?</p>
+                <h2 class="animate-on-scroll" data-key="contactTitle">Commencez Votre Projet</h2>
+                <p class="animate-on-scroll" style="animation-delay: 0.2s;" data-key="contactDescription">Prêt à transformer votre présence digitale avec une technologie créative?</p>
             </div>
             
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-card animate-on-scroll">
-                        <h3>Informations de Contact</h3>
+                        <h3 data-key="contactInfo">Informations de Contact</h3>
                         <div class="contact-detail">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <h4>Localisation</h4>
+                                <h4 data-key="locationTitle">Localisation</h4>
                                 <p>Constantine, Algérie</p>
                             </div>
                         </div>
@@ -1024,7 +1394,7 @@
                         <div class="contact-detail">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <h4>Téléphone</h4>
+                                <h4 data-key="phoneTitle">Téléphone</h4>
                                 <p>0789756404</p>
                             </div>
                         </div>
@@ -1032,7 +1402,7 @@
                         <div class="contact-detail">
                             <i class="fas fa-envelope"></i>
                             <div>
-                                <h4>Email</h4>
+                                <h4 data-key="emailTitle">Email</h4>
                                 <p>visionx@gmail.com</p>
                             </div>
                         </div>
@@ -1042,22 +1412,22 @@
                 <div class="contact-form animate-on-scroll" style="animation-delay: 0.3s;">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Votre Nom" required>
+                            <input type="text" class="form-control" data-key="namePlaceholder" placeholder="Votre Nom" required>
                         </div>
                         
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Votre Email" required>
+                            <input type="email" class="form-control" data-key="emailPlaceholder" placeholder="Votre Email" required>
                         </div>
                         
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Type de Projet">
+                            <input type="text" class="form-control" data-key="projectTypePlaceholder" placeholder="Type de Projet">
                         </div>
                         
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Parlez-nous de votre vision..." required></textarea>
+                            <textarea class="form-control" data-key="messagePlaceholder" placeholder="Parlez-nous de votre vision..." required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn">Lancer le Projet</button>
+                        <button type="submit" class="btn" data-key="submitProject">Lancer le Projet</button>
                     </form>
                 </div>
             </div>
@@ -1071,12 +1441,10 @@
                 <div class="footer-col animate-on-scroll">
                     <a href="#home" class="logo">
                         <div class="logo-container">
-                            
                             <img src="visionx1.png" alt="VisionX Logo" class="logo-img" style="height: 200px;">
-                            
                         </div>
                     </a>
-                    <p>Repoussant les limites du design web avec des expériences immersives et une technologie de pointe.</p>
+                    <p data-key="footerDescription">Repoussant les limites du design web avec des expériences immersives et une technologie de pointe.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-dribbble"></i></a>
@@ -1086,33 +1454,325 @@
                 </div>
                 
                 <div class="footer-col animate-on-scroll" style="animation-delay: 0.1s;">
-                    <h3>Services</h3>
+                    <h3 data-key="footerServicesTitle">Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#services">Développement Web</a></li>
-                        <li><a href="#services">Design UI/UX</a></li>
-                        <li><a href="#services">Effets d'Animation</a></li>
-                        <li><a href="#services">Applications Mobile</a></li>
+                        <li><a href="#services" data-key="footerService1">Développement Web</a></li>
+                        <li><a href="#services" data-key="footerService2">Design UI/UX</a></li>
+                        <li><a href="#services" data-key="footerService3">Effets d'Animation</a></li>
+                        <li><a href="#services" data-key="footerService4">Applications Mobile</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col animate-on-scroll" style="animation-delay: 0.2s;">
-                    <h3>Liens Rapides</h3>
+                    <h3 data-key="footerQuickLinks">Liens Rapides</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Accueil</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home" data-key="footerHome">Accueil</a></li>
+                        <li><a href="#services" data-key="footerServices">Services</a></li>
+                        <li><a href="#portfolio" data-key="footerPortfolio">Portfolio</a></li>
+                        <li><a href="#contact" data-key="footerContact">Contact</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright animate-on-scroll" style="animation-delay: 0.3s;">
-                <p>&copy; 2023 VisionX Agence Web. Tous droits réservés.</p>
+                <p data-key="copyright">&copy; 2023 VisionX Agence Web. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Language translations
+        const translations = {
+            fr: {
+                // Navigation
+                home: "Accueil",
+                services: "Services",
+                portfolio: "Portfolio",
+                contact: "Contact",
+                
+                // Hero Section
+                heroTitle: "Où la <span>Vision</span> Rencontre l'<span>Innovation</span>",
+                heroDescription: "VisionX allie solutions web créatives et animations époustouflantes pour offrir des expériences digitales qui captivent et convertissent.",
+                startProject: "Démarrer Votre Projet",
+                ourServices: "Nos Services",
+                
+                // Services Section
+                servicesTitle: "Nos Services",
+                servicesDescription: "Nous exploitons les dernières technologies web pour créer des expériences digitales engageantes qui se démarquent.",
+                service1Title: "Développement Web",
+                service1Description: "Sites web interactifs avec des animations et effets modernes qui engagent les utilisateurs comme jamais auparavant.",
+                service2Title: "Design Responsive",
+                service2Description: "Designs mobile-first et responsives qui fonctionnent parfaitement sur tous les appareils et tailles d'écran.",
+                service3Title: "Animation Créative",
+                service3Description: "Animations CSS et JavaScript avancées pour une narration visuelle époustouflante.",
+                explore: "Explorer",
+                seeDesigns: "Voir les Designs",
+                seeAnimations: "Voir les Animations",
+                
+                // Portfolio Section
+                portfolioTitle: "Portfolio",
+                portfolioDescription: "Découvrez nos projets qui allient créativité et technologie de pointe.",
+                project1Title: "Plateforme E-commerce",
+                project2Title: "Tableau de Bord Analytics",
+                
+                // Contact Section
+                contactTitle: "Commencez Votre Projet",
+                contactDescription: "Prêt à transformer votre présence digitale avec une technologie créative?",
+                contactInfo: "Informations de Contact",
+                locationTitle: "Localisation",
+                phoneTitle: "Téléphone",
+                emailTitle: "Email",
+                namePlaceholder: "Votre Nom",
+                emailPlaceholder: "Votre Email",
+                projectTypePlaceholder: "Type de Projet",
+                messagePlaceholder: "Parlez-nous de votre vision...",
+                submitProject: "Lancer le Projet",
+                
+                // Footer
+                footerDescription: "Repoussant les limites du design web avec des expériences immersives et une technologie de pointe.",
+                footerServicesTitle: "Services",
+                footerService1: "Développement Web",
+                footerService2: "Design UI/UX",
+                footerService3: "Effets d'Animation",
+                footerService4: "Applications Mobile",
+                footerQuickLinks: "Liens Rapides",
+                footerHome: "Accueil",
+                footerServices: "Services",
+                footerPortfolio: "Portfolio",
+                footerContact: "Contact",
+                copyright: "&copy; 2023 VisionX Agence Web. Tous droits réservés."
+            },
+            
+            en: {
+                // Navigation
+                home: "Home",
+                services: "Services",
+                portfolio: "Portfolio",
+                contact: "Contact",
+                
+                // Hero Section
+                heroTitle: "Where <span>Vision</span> Meets <span>Innovation</span>",
+                heroDescription: "VisionX combines creative web solutions with stunning animations to deliver digital experiences that captivate and convert.",
+                startProject: "Start Your Project",
+                ourServices: "Our Services",
+                
+                // Services Section
+                servicesTitle: "Our Services",
+                servicesDescription: "We leverage the latest web technologies to create engaging digital experiences that stand out.",
+                service1Title: "Web Development",
+                service1Description: "Interactive websites with modern animations and effects that engage users like never before.",
+                service2Title: "Responsive Design",
+                service2Description: "Mobile-first responsive designs that work perfectly on all devices and screen sizes.",
+                service3Title: "Creative Animation",
+                service3Description: "Advanced CSS and JavaScript animations for stunning visual storytelling.",
+                explore: "Explore",
+                seeDesigns: "See Designs",
+                seeAnimations: "See Animations",
+                
+                // Portfolio Section
+                portfolioTitle: "Portfolio",
+                portfolioDescription: "Discover our projects that combine creativity and cutting-edge technology.",
+                project1Title: "E-commerce Platform",
+                project2Title: "Analytics Dashboard",
+                
+                // Contact Section
+                contactTitle: "Start Your Project",
+                contactDescription: "Ready to transform your digital presence with creative technology?",
+                contactInfo: "Contact Information",
+                locationTitle: "Location",
+                phoneTitle: "Phone",
+                emailTitle: "Email",
+                namePlaceholder: "Your Name",
+                emailPlaceholder: "Your Email",
+                projectTypePlaceholder: "Project Type",
+                messagePlaceholder: "Tell us about your vision...",
+                submitProject: "Launch Project",
+                
+                // Footer
+                footerDescription: "Pushing the boundaries of web design with immersive experiences and cutting-edge technology.",
+                footerServicesTitle: "Services",
+                footerService1: "Web Development",
+                footerService2: "UI/UX Design",
+                footerService3: "Animation Effects",
+                footerService4: "Mobile Applications",
+                footerQuickLinks: "Quick Links",
+                footerHome: "Home",
+                footerServices: "Services",
+                footerPortfolio: "Portfolio",
+                footerContact: "Contact",
+                copyright: "&copy; 2023 VisionX Web Agency. All rights reserved."
+            },
+            
+            ar: {
+                // Navigation
+                home: "الرئيسية",
+                services: "الخدمات",
+                portfolio: "الأعمال",
+                contact: "اتصل بنا",
+                
+                // Hero Section
+                heroTitle: "حيث تلتقي <span>الرؤية</span> مع <span>الابتكار</span>",
+                heroDescription: "فيجن إكس تجمع بين حلول الويب الإبداعية والرسوم المتحركة المذهلة لتقديم تجارب رقمية تأسر وتحول.",
+                startProject: "ابدأ مشروعك",
+                ourServices: "خدماتنا",
+                
+                // Services Section
+                servicesTitle: "خدماتنا",
+                servicesDescription: "نستفيد من أحدث تقنيات الويب لخلق تجارب رقمية جذابة تبرز.",
+                service1Title: "تطوير الويب",
+                service1Description: "مواقع ويب تفاعلية مع رسوم متحركة وتأثيرات حديثة تجذب المستخدمين كما لم يحدث من قبل.",
+                service2Title: "تصميم متجاوب",
+                service2Description: "تصاميم متجاوبة تركز على الجوال تعمل بشكل مثالي على جميع الأجهزة وأحجام الشاشات.",
+                service3Title: "رسوم متحركة إبداعية",
+                service3Description: "رسوم متحركة متقدمة باستخدام CSS و JavaScript لسرد قصص مرئية مذهلة.",
+                explore: "استكشف",
+                seeDesigns: "شاهد التصاميم",
+                seeAnimations: "شاهد الرسوم المتحركة",
+                
+                // Portfolio Section
+                portfolioTitle: "الأعمال",
+                portfolioDescription: "اكتشف مشاريعنا التي تجمع بين الإبداع والتكنولوجيا المتطورة.",
+                project1Title: "منصة التجارة الإلكترونية",
+                project2Title: "لوحة التحليلات",
+                
+                // Contact Section
+                contactTitle: "ابدأ مشروعك",
+                contactDescription: "مستعد لتحويل وجودك الرقمي بتقنية إبداعية؟",
+                contactInfo: "معلومات الاتصال",
+                locationTitle: "الموقع",
+                phoneTitle: "الهاتف",
+                emailTitle: "البريد الإلكتروني",
+                namePlaceholder: "اسمك",
+                emailPlaceholder: "بريدك الإلكتروني",
+                projectTypePlaceholder: "نوع المشروع",
+                messagePlaceholder: "أخبرنا عن رؤيتك...",
+                submitProject: "إطلاق المشروع",
+                
+                // Footer
+                footerDescription: "ندفع حدود تصميم الويب بتجارب غامرة وتكنولوجيا متطورة.",
+                footerServicesTitle: "الخدمات",
+                footerService1: "تطوير الويب",
+                footerService2: "تصميم واجهة المستخدم/التجربة",
+                footerService3: "تأثيرات الرسوم المتحركة",
+                footerService4: "تطبيقات الجوال",
+                footerQuickLinks: "روابط سريعة",
+                footerHome: "الرئيسية",
+                footerServices: "الخدمات",
+                footerPortfolio: "الأعمال",
+                footerContact: "اتصل بنا",
+                copyright: "&copy; 2023 وكالة فيجن إكس للويب. جميع الحقوق محفوظة."
+            }
+        };
+
+        // Current language
+        let currentLang = 'fr';
+
+        // DOM elements
+        const languageBtn = document.getElementById('languageBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const currentLanguageText = document.getElementById('currentLanguage');
+        const languageOptions = document.querySelectorAll('.language-option');
+        
+        // Language switcher functionality
+        function toggleLanguageDropdown() {
+            languageDropdown.classList.toggle('active');
+        }
+        
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update current language text
+            currentLanguageText.textContent = lang === 'fr' ? 'Français' : 
+                                            lang === 'en' ? 'English' : 'العربية';
+            
+            // Update language dropdown active state
+            languageOptions.forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.lang === lang) {
+                    option.classList.add('active');
+                }
+            });
+            
+            // Update all translatable elements
+            updatePageContent(lang);
+            
+            // Close dropdown
+            languageDropdown.classList.remove('active');
+            
+            // Save to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update direction for Arabic
+            if (lang === 'ar') {
+                document.body.setAttribute('lang', 'ar');
+                document.body.style.direction = 'rtl';
+                document.body.style.textAlign = 'right';
+            } else {
+                document.body.setAttribute('lang', lang);
+                document.body.style.direction = 'ltr';
+                document.body.style.textAlign = 'left';
+            }
+        }
+        
+        function updatePageContent(lang) {
+            const translation = translations[lang];
+            
+            // Update all elements with data-key attribute
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translation[key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translation[key];
+                    } else {
+                        element.innerHTML = translation[key];
+                    }
+                }
+            });
+            
+            // Update navigation links
+            document.querySelectorAll('.nav-links a[data-key]').forEach(link => {
+                const key = link.getAttribute('data-key');
+                if (translation[key]) {
+                    link.textContent = translation[key];
+                }
+            });
+            
+            // Update footer links
+            document.querySelectorAll('.footer-links a[data-key]').forEach(link => {
+                const key = link.getAttribute('data-key');
+                if (translation[key]) {
+                    link.textContent = translation[key];
+                }
+            });
+        }
+        
+        // Event Listeners for Language Switcher
+        languageBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleLanguageDropdown();
+        });
+        
+        languageOptions.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.dataset.lang;
+                setLanguage(lang);
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
+                languageDropdown.classList.remove('active');
+            }
+        });
+        
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            setLanguage(savedLang);
+        });
+
         // Particle Background
         function initParticleBackground() {
             const canvas = document.getElementById('particleCanvas');
@@ -1163,7 +1823,7 @@
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
                     
-                    //  Glow effect for brighter stars
+                    // Glow effect for brighter stars
                     if (this.size > 2) {
                         ctx.shadowBlur = 10;
                         ctx.shadowColor = this.color;
@@ -1252,10 +1912,12 @@
         
         // Close menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
+            if (!link.classList.contains('language-option')) {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            }
         });
         
         // Header scroll effect
@@ -1283,7 +1945,8 @@
             const submitBtn = contactForm.querySelector('.btn');
             const originalText = submitBtn.textContent;
             
-            submitBtn.textContent = "Envoi en cours...";
+            submitBtn.textContent = currentLang === 'fr' ? "Envoi en cours..." : 
+                                   currentLang === 'en' ? "Sending..." : "جارٍ الإرسال...";
             submitBtn.style.background = "linear-gradient(90deg, #36d1dc, #5a52d3)";
             
             // Animate the form
@@ -1291,7 +1954,8 @@
             
             // Simulate API call
             setTimeout(() => {
-                submitBtn.textContent = "✓ Envoyé avec succès!";
+                submitBtn.textContent = currentLang === 'fr' ? "✓ Envoyé avec succès!" : 
+                                       currentLang === 'en' ? "✓ Sent successfully!" : "✓ تم الإرسال بنجاح!";
                 submitBtn.style.background = "linear-gradient(90deg, #4CAF50, #2E7D32)";
                 
                 // Add a little animation to the success message
@@ -1327,7 +1991,7 @@
                 }, index * 300);
             });
             
-            // Vérifier si le logo est chargé, sinon afficher un fallback
+            // Check if logo is loaded
             const logoImgs = document.querySelectorAll('.logo-img');
             logoImgs.forEach(img => {
                 img.onerror = function() {
