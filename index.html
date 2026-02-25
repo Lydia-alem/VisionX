@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionX</title>
+    <!-- SEO Best Practices -->
+    <meta name="description"
+        content="VisionX is a digital agency specializing in stellar web development and robust system services. Elevate your enterprise beyond the stars.">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="canvas-container">
+        <canvas id="galaxy-canvas"></canvas>
+    </div>
+
+    <nav aria-label="Main Navigation">
+        <div class="logo">Vision<span>X</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home-wrapper" class="home-wrapper">
+            <div id="home" class="hero sticky-hero">
+                <div id="galaxy-intro">
+                    <h2>THE GENESIS</h2>
+                    <p class="scroll-instruction">Scroll to Ignite</p>
+                </div>
+
+                <div class="hero-content" id="visionx-content">
+                    <h1 class="glitch" data-text="VISIONX">VISIONX</h1>
+                    <p class="subtitle">Where Vision Meets Innovation</p>
+                    <a href="#services" class="btn">Explore Our Universe</a>
+                </div>
+
+                <div class="scroll-indicator" id="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <div class="arrows">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <h2>Our Stellar Services</h2>
+            <div class="cards">
+                <div class="card" id="card-web">
+                    <div class="icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Building lighting-fast, responsive web applications that conquer the digital galaxy.</p>
+                </div>
+                <div class="card" id="card-sys">
+                    <div class="icon">⚙️</div>
+                    <h3>System Services</h3>
+                    <p>Architecting robust, scalable infrastructure for your enterprise starship.</p>
+                </div>
+                <div class="card" id="card-trans">
+                    <div class="icon">🚀</div>
+                    <h3>Digital Transformation</h3>
+                    <p>Guiding your business through the hyperspace of modern technology.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-content" id="about-card">
+                <h2>The VisionX Fleet</h2>
+                <p>We build the digital tools your business needs to thrive. Whether you need a robust administration
+                    system, a customer-facing web application, an online store, or a compelling website, we deliver
+                    solutions designed around your goals and your users</p>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Our Constellations</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="mini-galaxy"></div>
+                    <div class="mouse-light"></div>
+                    <div class="project-image">
+                        <img src="REM.png" alt="REM Emballage">
+                    </div>
+                    <div class="project-content">
+                        <h3>REM Emballage</h3>
+                        <p>Management software </p>
+                        <a href="https://rymemballage.com" class="btn-small">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="mini-galaxy galaxy-2"></div>
+                    <div class="mouse-light"></div>
+                    <div class="project-image">
+                        <img src="simou.png" alt="simou cosmetique">
+                    </div>
+                    <div class="project-content">
+                        <h3> Simou Cosmetics</h3>
+                        <p> E-commerce website for selling cosmetic products
+                        </p>
+                        <a href="https://simoucosmetique.com" class="btn-small">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="mini-galaxy galaxy-2"></div>
+                    <div class="mouse-light"></div>
+                    <div class="project-image">
+                        <img src="arcada.png" alt="Arcada Center">
+                    </div>
+                    <div class="project-content">
+                        <h3>ARCADA NeuroMedical Center</h3>
+                        <p> A website for a medical center
+                        </p>
+                        <a href="https://www.arcadacenter.cz/" class="btn-small">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 60px;">
+                <a href="projects.html" class="btn">View all projects</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Start Your Project...</h2>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Phone:</strong> 0781283233</p>
+                    <p><strong>Email:</strong> visionx@gmail.com</p>
+                    <p><strong>LinkedIn:</strong> linkedin.com/company/visionx</p>
+                    <p><strong>Location:</strong> Constantine </p>
+                </div>
+
+                <form id="contact-form">
+                    <input type="text" placeholder="Your Name" id="name-input" required>
+                    <input type="email" placeholder="  Your Email" id="email-input" required>
+                    <input type="text" placeholder="Project Type" id="Subject" required>
+                    <textarea placeholder="Transmit your message..." rows="5" id="message-input" required></textarea>
+                    <button type="submit" class="btn">Launch project</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 VisionX Agency. All systems operational.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
