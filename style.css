@@ -68,6 +68,19 @@ nav {
     color: var(--primary);
 }
 
+.nav-logo {
+    height: 55px;
+    /* Adjust height based on navbar */
+    width: auto;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.logo:hover .nav-logo {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
 nav ul {
     display: flex;
     list-style: none;
@@ -677,6 +690,17 @@ h2 {
     letter-spacing: 1px;
 }
 
+.contact-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: text-shadow 0.3s, color 0.3s;
+}
+
+.contact-link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--primary);
+}
+
 form {
     flex: 1;
     min-width: 320px;
@@ -1194,9 +1218,40 @@ nav ul li a.active {
     }
 
     .logo {
-        font-size: 1.5rem;
+        /* Removed font-size for logo to not interfere with image */
     }
+.nav-logo {
+    height: 50px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s;
+}
 
+.logo:hover .nav-logo {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+/* Tablets (portrait) and larger phones */
+@media (max-width: 768px) {
+    .nav-logo {
+        height: 40px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    .nav-logo {
+        height: 35px;
+    }
+}
+
+/* Extra Small Phones */
+@media (max-width: 360px) {
+    .nav-logo {
+        height: 30px;
+    }
+}
     nav ul {
         gap: 10px;
     }
